@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_135533) do
+ActiveRecord::Schema.define(version: 2020_11_01_181749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_11_01_135533) do
     t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id", "theater_id"], name: "index_shows_on_movie_id_and_theater_id", unique: true
     t.index ["movie_id"], name: "index_shows_on_movie_id"
     t.index ["theater_id"], name: "index_shows_on_theater_id"
   end
