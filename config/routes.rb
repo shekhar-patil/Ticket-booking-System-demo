@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  resources :movies
+  root to: 'movies#index'
   devise_for :users, skip: [:registrations], controllers: { sessions: 'users/sessions' }
 
   devise_scope :users do
