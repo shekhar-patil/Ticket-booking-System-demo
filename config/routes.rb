@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :theaters
   resources :movies
   root to: 'movies#index'
   devise_for :users, skip: [:registrations], controllers: { sessions: 'users/sessions' }
