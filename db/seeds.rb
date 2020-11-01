@@ -8,3 +8,5 @@ User.create!(email: 'shekhar+admin@gmail.com', password: 'shekhar123', role: rol
 User.create!(email: 'shekhar+customer1@gmail.com', password: 'shekhar123', role: role2)
 User.create!(email: 'shekhar+customer2@gmail.com', password: 'shekhar123', role: role2)
 User.create!(email: 'shekhar+customer3@gmail.com', password: 'shekhar123', role: role2)
+
+Theater.create!(name: 'PVR: Kumar Pacific Pune', city: 'pune')
