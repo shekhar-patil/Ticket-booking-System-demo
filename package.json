@@ -1,5 +1,5 @@
 {
-  "name": "starter",
+  "name": "ticket_booking_system",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
