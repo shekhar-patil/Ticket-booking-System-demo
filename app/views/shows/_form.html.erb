@@ -1,0 +1,39 @@
+<%= form_for(:show, :url => {:controller => 'shows', :action => 'create'}) do |form| %>
+  <% if show.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(show.errors.count, "error") %> prohibited this show from being saved:</h2>
+
+      <ul>
+        <% show.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :movie_id %>
+    <%= form.select :movie_id,
+          @movies.map { |movie| [movie.name, movie.id] },
+	        {
+            selected: form.object.try(:movie_id) || "",
+            disabled: "",
+            prompt: 'Please select Movie'
+          },
+          { class: 'form-control' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.datetime_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.check_box :available %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
