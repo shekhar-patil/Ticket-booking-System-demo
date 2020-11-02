@@ -5,4 +5,5 @@ class Show < ApplicationRecord
   # associations
   belongs_to :movie
   belongs_to :theater
+  has_many :screens
 end
