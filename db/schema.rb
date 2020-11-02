@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_034911) do
+ActiveRecord::Schema.define(version: 2020_11_02_041802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_11_02_034911) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "time_slots", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "screen_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["screen_id"], name: "index_time_slots_on_screen_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,5 +82,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_034911) do
   add_foreign_key "screens", "shows"
   add_foreign_key "shows", "movies"
   add_foreign_key "shows", "theaters"
+  add_foreign_key "time_slots", "screens"
   add_foreign_key "users", "roles"
 end

@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   before_action :set_movies, only: %i[new edit update]
 
   def index
-    @shows = Show.includes(:movie, :theater).all
+    @shows = Show.where(available: true).includes(:movie, :theater).all
   end
 
   def show
